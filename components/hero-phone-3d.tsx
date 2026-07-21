@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Float, Environment, MeshTransmissionMaterial, ContactShadows } from '@react-three/drei';
 import * as THREE from 'three';
@@ -192,7 +192,9 @@ export function HeroPhone3D() {
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
       >
-        <Scene />
+       <Suspense fallback={null}>
+     <Scene />
+   </Suspense>
       </Canvas>
     </div>
   );
